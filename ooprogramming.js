@@ -1,15 +1,16 @@
 // Task 1: Code a Person class
 class Person {
-    constructor ({name='Tom',age=20,energy=100}){
+    constructor (name='Tom',age=20,energy=100){
         this.name=name;
         this.age=age
         this.energy=energy
     }
     sleep() {
-        this.energy+=this.energy
+        this.energy=this.energy+10
     }
     doSomethingFun(){
-        this.energy-=this.energy
+        this.energy=this.energy-10
+       
     }
 }
 
@@ -17,21 +18,19 @@ class Person {
 
 class Worker extends Person {
     constructor(xp=0,hourlyWage=10,name,age,energy){
-        super.name=name
-        super.age=age
-        super.energy=energy
+        super(name,age,energy)
         this.xp = 0
         this.hourlyWage = hourlyWage
     }
     goToWork(){
-        this.xp+=10;
+        this.xp=10+this.xp;
     }
 
 }
 
 // Task 3: Code an intern object, run methods
 function intern() {
-    var intern=new Worker('Bob',age,energy,0,10);
+    var intern=new Worker(0,10,'Bob',21,110);
     intern.goToWork();
     return intern;
 
@@ -45,4 +44,4 @@ function manager() {
 }
 
 
-
+//Failed: Intern instance - returned: 10,21,110,0,10 but expected 10,10,Bob,21,110
